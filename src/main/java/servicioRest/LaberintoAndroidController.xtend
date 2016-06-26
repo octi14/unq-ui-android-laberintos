@@ -19,6 +19,14 @@ class LaberintoAndroidController {
 		ok(repo.laberintos.toJson)
 	}
 	
+	@Get("/inventario")
+	def traerInventario() {
+		response.contentType = "application/json"
+
+		var repo = Repo.repo
+
+		ok(repo.inventario.toJson)
+	}
 	def static void main(String[] args) {
 		XTRest.start(LaberintoAndroidController, 9090)
 	}

@@ -1,12 +1,14 @@
 package repo
 
 import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
 
-
+@Accessors
 class Repo {
 	
 	static Repo repo
 	List<Laberinto> laberintos
+	List<Item> inventario
 	
 	def static Repo getRepo() {
 		if (repo == null) {
@@ -17,6 +19,20 @@ class Repo {
 	
 	new(){
 		laberintos = inicializarLaberintos()
+		inventario = inicializarInventario()
+	}
+	
+	def inicializarInventario() {
+		#[
+			new Item("Pala"),
+			new Item("Martillo"),
+			new Item("Llave"),
+			new Item("Pistola"),
+			new Item("Hacha"),
+			new Item("Cuchillo"),
+			new Item("Destornillador"),
+			new Item("Clavos")
+		]
 	}
 	
 	def inicializarLaberintos() {
